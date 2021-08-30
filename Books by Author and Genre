@@ -1,0 +1,8 @@
+Select Books.author, Books.Genre, Count(Books.Genre) as Total_By_Genre_Scifi_Fantasy_Combined
+from
+(Select authors_last_name || ', ' || authors_first_name as author, sub_genre,
+	Case When sub_genre = 'Science-Fiction' or sub_genre = 'Fantasy' then 'Scifi-Fantasy'
+			Else sub_genre end Genre
+		from library) Books
+		Where Books.author is not null
+Group By 1, 2 Order by 1, 2, 3 Desc
