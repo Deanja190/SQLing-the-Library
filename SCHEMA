@@ -1,0 +1,13 @@
+Create Table Library (
+ID Serial Primary Key,
+Authors_First_Name varchar,
+Authors_Last_Name varchar,
+Title varchar,
+Genre varchar,
+Sub_Genre varchar,
+Publisher varchar,
+First_Pub_Year integer,
+This_Pub_Year integer,
+Read varchar,
+Rating integer,
+NR4 integer);
