@@ -1,0 +1,7 @@
+Select Books.Genre, Count(Books.Genre) as Total_By_Genre_Scifi_Fantasy_Combined
+from
+(Select sub_genre,
+	Case When sub_genre = 'Science-Fiction' or sub_genre = 'Fantasy' then 'Scifi-Fantasy'
+			Else sub_genre end Genre
+		from library) Books
+Group By 1 Order by 2 Desc
