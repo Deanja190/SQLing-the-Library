@@ -1,0 +1,3 @@
+Select * 
+from Library
+Where read = 'Y' and rating <=3 and nr4 = 0
