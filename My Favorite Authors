@@ -1,0 +1,9 @@
+Select sub.* 
+from 
+	(Select Authors_last_name || ', ' || authors_first_name as Authors, 
+	 		Round (AVG(Rating), 2) Average_rating, 
+	 		Count (Title) total_titles
+		from library
+		where rating is not null 
+		Group by 1 Order by 2 desc, 3 desc) sub
+where sub.total_titles > 1
