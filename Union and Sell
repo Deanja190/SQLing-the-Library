@@ -1,7 +1,10 @@
-(Select Authors_last_name || ', ' || authors_first_name as author, Title, Read, Rating, NR4
-from Library
-Where read = 'N' and nr4 = '0' or read ='P' and nr4 = 0)
-Union All
-(Select Authors_last_name || ', ' || authors_first_name as author, Title, Read, Rating, NR4 
-from Library
-Where read = 'Y' and rating <=3 and nr4 = 0)
+Select Distinct sub.* 
+from 
+		((Select Authors_last_name || ', ' || authors_first_name as author, Title, Read, Rating, NR4
+			from Library
+			Where read = 'N' and nr4 = '0' or read ='P' and nr4 = 0)
+	Union All
+		(Select Authors_last_name || ', ' || authors_first_name as author, Title, Read, Rating, NR4 
+			from Library
+			Where read = 'Y' and rating <=3 and nr4 = 0))sub
+order by sub.author
