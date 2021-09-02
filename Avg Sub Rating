@@ -1,0 +1,4 @@
+Select sub_genre, Round (AVG (Rating), 2) as Average_Rating, count(sub_genre) as Total_books_in_sub_genre
+From Library
+where rating is not null
+	Group by 1 Order by 2 desc, 3 desc
