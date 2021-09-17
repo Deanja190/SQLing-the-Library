@@ -1,0 +1,8 @@
+Select sub.title, 
+	Case when sub.edition = '0' then 'First Edition' 
+		else 'Other' end Edition
+from
+	(Select Title, This_pub_year - first_pub_year as Edition from library
+		Order by 2) sub
+Where
+	sub.Edition = 0
