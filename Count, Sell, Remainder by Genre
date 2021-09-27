@@ -1,0 +1,10 @@
+Select epic.sub_genre, epic.count, epic.selling, epic.count - epic.selling as remainder from
+(Select l.Sub_genre, count(distinct l.*), count(distinct sub.*) as Selling from library l 
+join
+(Select * 
+from library 
+where rating in(1,2,3) and nr4 = 0 
+   or rating is null and nr4 = 0) sub
+   on sub.sub_genre = l.sub_genre
+   group by 1 order by 2 desc) epic
+   group by 1, 2, 3 order by 4  desc
