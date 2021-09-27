@@ -1,0 +1,4 @@
+Select * 
+from library 
+where rating in(1,2,3) and nr4 = 0 
+   or rating is null and nr4 = 0
