@@ -1,0 +1,7 @@
+Select sub.*
+from
+(Select Authors_first_name ||' '|| Authors_last_name as author, Count(title) as Total, round (avg(first_pub_year), 0) as Avg_Year_Published 
+from library Where 1 is not null
+group by 1 order by 2 desc) sub
+where sub.author is not null and sub.avg_year_published is not null and sub.total >= 5
+order by sub.total desc, sub.avg_year_published desc
